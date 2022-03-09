@@ -1,0 +1,27 @@
+Protocol Buffers
+Interface Definition Language (IDL)
+
+Overview:
+Proto Request, and Proto Response
+gRPC server handles client calls.
+
+Now, gRPC server can be written in C++, and any client who is written in Ruby or Android-studio Java client can 
+make requests to gRPC server using Proto Requests and recieve Proto Responses.
+
+So, for example, you can easily create a gRPC server in Java with clients in Go, Python, or Ruby.
+
+
+Working with Protocol Buffers:
+The first step when working with protocol buffers is to define the structure for the data you want to serialize in a proto file
+this is an ordinary text file with a .proto extension.
+Protocol buffer data is structured as messages, where each message is a small logical record of information containing a series of name-value pairs called fields.
+
+Example:
+you use the protocol buffer compiler protoc to generate data access classes in your preferred language(s) from your proto definition.
+So, for instance, if your chosen language is C++, running the compiler on the example above will generate a class called Person
+You can then use this class in your application to populate, serialize, and retrieve Person protocol buffer messages.
+Checkout Person.proto file.
+
+
+You define gRPC services in ordinary proto files, with RPC method parameters and return types specified as protocol buffer messages:
+Check exampleService.proto file.

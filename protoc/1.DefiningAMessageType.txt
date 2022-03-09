@@ -1,0 +1,27 @@
+Let's say you want to define a search request message format, where each search request has a query string, the particular page of results you are interested in, and a number of results per page.
+Here's the .proto file you use to define the message type.
+(SearchRequest.proto)
+
+
+Specying Field Types:
+
+
+Assigning Field Numbers:
+As you can see, each field in the message definition has a unique number.
+Note that field numbers in the range 1 through 15 take one byte to encode, including the field number and the field's type
+Field numbers in the range 16 through 2047 take two bytes. So you should reserve the numbers 1 through 15 for very frequently occurring message elements.
+
+
+Specifying Field Rules:
+singular: a well-formed message can have zero or one of this field (but not more than one). And this is the default field rule for proto3 syntax.
+repeated: this field can be repeated any number of times (including zero) in a well-formed message. The order of the repeated values will be preserved.
+
+Adding more message types:
+Multiple message types can be defined in a single .proto file. 
+This is useful if you are defining multiple related messages – so, for example, if you wanted to define the reply message format 
+that corresponds to your SearchResponse message type, you could add it to the same .proto:
+
+
+
+Adding Comments:
+We can add C or C++ style comments in .proto files.
